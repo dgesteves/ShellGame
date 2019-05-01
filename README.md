@@ -1,2 +1,2 @@
 # ShellGame
-My Shell Game
+Simple shell game 

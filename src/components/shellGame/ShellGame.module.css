@@ -1,0 +1,7 @@
+.container {
+    display: flex;
+    background: linear-gradient(to bottom, #7f8688, #ccc);;
+    width: 100vw;
+    height: 100vh;
+    color: #fff;
+    }
