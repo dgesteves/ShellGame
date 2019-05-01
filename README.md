@@ -10,3 +10,6 @@
 
 ## Game layout
 ![Layout Image](./src/assets/shellGame.png)
+
+## Component Structure
+![Structure Image](src/assets/ShellGameComponentStructure.png)
