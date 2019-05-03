@@ -68,7 +68,7 @@
     position: absolute;
     }
 
-.animation {
+.ShellAnimation {
     animation: swing 1s infinite alternate;
     }
 
@@ -90,4 +90,35 @@
 .shell:hover {
     transform: scale(1.1);
     cursor: pointer;
+    }
+
+/*Ball*/
+.ball {
+    position: absolute;
+    top: 230px;
+    left: 230px;
+    border: 2px solid crimson;
+    background: crimson;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    }
+
+.invisible {
+    animation: bounceIn 2s;
+    }
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+        }
+    60% {
+        transform: scale(1);
+        opacity: 1;
+        }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+        }
     }

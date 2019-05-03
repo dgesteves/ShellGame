@@ -20,7 +20,7 @@ class RightContainer extends Component {
 
     classHandler = () =>
         this.setState({
-                          boardContainerClassName: `${ styles.shellContainer } ${ styles.animation }`
+                          boardContainerClassName: `${ styles.shellContainer } ${ styles.ShellAnimation }`
                       });
 
     leftPosition = index => {
@@ -91,6 +91,8 @@ class RightContainer extends Component {
                         classToUse={ this.state.boardContainerClassName }
                         numberOfShells={ this.state.shellsNumber }
                     />
+                    <span className={ `${ styles.ball } ${ styles.invisible }` }>
+                    </span>
                 </div>
 
                 {/*<Btn text={ 'play' }/>*/ }

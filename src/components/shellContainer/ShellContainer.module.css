@@ -2,7 +2,7 @@
     position: absolute;
     }
 
-.animation {
+.ShellAnimation {
     animation: swing 1s infinite alternate;
     }
 
