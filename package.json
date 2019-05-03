@@ -1,5 +1,6 @@
 {
   "name": "shell-game",
+  "author": "Diogo Esteves",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

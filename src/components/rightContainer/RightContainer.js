@@ -3,7 +3,6 @@ import styles from './RightContainer.module.css';
 import shell from '../../assets/shell.png';
 
 class RightContainer extends Component {
-
     state = {
         boardContainerClassName: styles.shellContainer,
         shellsNumber: [1, 2, 3],
@@ -20,37 +19,40 @@ class RightContainer extends Component {
     };
 
     classHandler = () =>
-        this.setState({ boardContainerClassName: `${ styles.shellContainer } ${ styles.animation }` });
+        this.setState({
+                          boardContainerClassName: `${ styles.shellContainer } ${ styles.animation }`
+                      });
 
-    leftPosition = (positionArr) => {
-        return positionArr.forEach((p) => {
-            switch (p) {
-                case 1:
-                    return '100px';
-                case 2:
-                    return '200px';
-                case 3:
-                    return '300px';
-                case 4:
-                    return '400px';
-                case 5:
-                    return '500px';
-                default:
-                    return '';
-            }
-        });
+    leftPosition = index => {
+        switch (index) {
+            case 0:
+                return '100px';
+            case 1:
+                return '200px';
+            case 2:
+                return '300px';
+            case 3:
+                return '400px';
+            case 4:
+                return '500px';
+            default:
+                return '';
+        }
     };
 
-    difficultyHandler = (action) => {
+    difficultyHandler = action => {
         switch (action) {
             case 'normal':
                 return this.setState({ shellsNumber: [1, 2, 3], ballsNumber: [1] });
             case 'hard':
                 return this.setState({ shellsNumber: [1, 2, 3, 4], ballsNumber: [1] });
             case 'extreme':
-                return this.setState({ shellsNumber: [1, 2, 3, 4, 5], ballsNumber: [2] });
+                return this.setState({
+                                         shellsNumber: [1, 2, 3, 4, 5],
+                                         ballsNumber: [2]
+                                     });
             default:
-                return ''
+                return '';
         }
     };
 
@@ -61,53 +63,59 @@ class RightContainer extends Component {
 
                 {/*<BtnContainer/>*/ }
                 <div className={ styles.levels }>
-                    <span
-                        className={ `${ styles.btn } ${ styles.normal }` }
-                        onClick={ () => this.difficultyHandler(this.btnText.normal) }>
-                        { this.btnText.normal }
-                    </span>
+          <span
+              className={ `${ styles.btn } ${ styles.normal }` }
+              onClick={ () => this.difficultyHandler(this.btnText.normal) }
+          >
+            { this.btnText.normal }
+          </span>
                     <span
                         className={ `${ styles.btn } ${ styles.hard }` }
-                        onClick={ () => this.difficultyHandler(this.btnText.hard) }>
-                        { this.btnText.hard }
-                    </span>
+                        onClick={ () => this.difficultyHandler(this.btnText.hard) }
+                    >
+            { this.btnText.hard }
+          </span>
                     <span
                         className={ `${ styles.btn } ${ styles.extreme }` }
-                        onClick={ () => this.difficultyHandler(this.btnText.extreme) }>
-                        { this.btnText.extreme }
-                    </span>
+                        onClick={ () => this.difficultyHandler(this.btnText.extreme) }
+                    >
+            { this.btnText.extreme }
+          </span>
                 </div>
 
                 {/*<BoardContainer/>*/ }
                 <div className={ styles.board }>
                     <ShellComponent
                         top={ this.topPosition }
-                        left={ () => this.leftPosition(this.state.shellsNumber) }
+                        left={ index => this.leftPosition(index) }
                         classToUse={ this.state.boardContainerClassName }
-                        numberOfShells={ this.state.shellsNumber }/>
+                        numberOfShells={ this.state.shellsNumber }
+                    />
                 </div>
 
                 {/*<Btn text={ 'play' }/>*/ }
                 <span
                     className={ `${ styles.btn } ${ styles.play }` }
-                    onClick={ this.classHandler }>
-                    { this.btnText.play }
-                </span>
+                    onClick={ this.classHandler }
+                >
+          { this.btnText.play }
+        </span>
             </div>
-        )
+        );
     }
 }
 
-const ShellComponent = (props) => {
-    return props.numberOfShells.map((shellNum, index) => {
+const ShellComponent = props => {
+    return props.numberOfShells.map((_, index) => {
         return (
             <div
-                style={ { top: props.top, left: props.left } }
+                style={ { top: props.top, left: props.left(index) } }
                 className={ props.classToUse }
-                key={ index }>
+                key={ index }
+            >
                 <img src={ shell } alt='shell' className={ styles.shell }/>
             </div>
-        )
+        );
     });
 };
 
