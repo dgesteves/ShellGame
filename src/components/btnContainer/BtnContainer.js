@@ -1,22 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styles from './BtnContainer.module.css';
 import Btn from '../btn/Btn';
 
-const BtnContainer = () => {
+class BtnContainer extends Component {
 
-    const displayButtons = () => {
+    displayButtons() {
         const buttons = ['normal', 'hard', 'extreme'];
         return buttons.map((button, index) =>
                                <Btn key={ index } text={ button }/>
         )
-    };
+    }
 
-    return (
-        <div className={ styles.levels }>
-            { displayButtons() }
-        </div>
-    )
-
-};
+    render() {
+        return (
+            <div className={ styles.levels }>
+                { this.displayButtons() }
+            </div>
+        )
+    }
+}
 
 export default BtnContainer;

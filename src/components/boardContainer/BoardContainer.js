@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styles from './BoardContainer.module.css';
 import ShellContainer from '../shellContainer/ShellContainer';
 
-const displayShells = () => {
-    const positions = ['100px', '200px', '300px', '400px', '500px'];
-    return positions.map((left, index) => <ShellContainer key={ index } left={ left }/>)
-};
+class BoardContainer extends Component {
 
-const BoardContainer = () => <div className={ styles.board }>{ displayShells() }</div>;
+    displayShells = () => {
+        const startPositions = ['100px', '200px', '300px', '400px', '500px'];
+        return startPositions.map((left, index) =>
+                                 <ShellContainer key={ index } left={ left }/>)
+    };
+
+    render() {
+        return <div className={ styles.board }>{ this.displayShells() }</div>
+    }
+}
 
 export default BoardContainer;

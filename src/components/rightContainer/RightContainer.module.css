@@ -5,3 +5,89 @@
     height: 100vh;
     width: 70%;
     }
+
+/* BTN */
+.btn {
+    text-align: center;
+    font-weight: 600;
+    font-size: 24px;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 8px;
+    height: 32px;
+    width: 128px;
+    }
+
+.btn:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    }
+
+.normal {
+    background-color: #66b2b2;
+    border: 1px solid #66b2b2;
+    }
+
+.hard {
+    background-color: #008080;
+    border: 1px solid #008080;
+    }
+
+.extreme {
+    background-color: #066;
+    border: 1px solid #066;
+    }
+
+.play {
+    align-self: center;
+    background-color: #7f8688;
+    border: 1px solid #7f8688;
+    margin-bottom: 16px;
+    }
+
+/*BTN Container*/
+.levels {
+    display: flex;
+    justify-content: space-around;
+    }
+
+/*Board Container*/
+.board {
+    position: relative;
+    height: 70%;
+    }
+
+/*Title*/
+.title {
+    text-transform: uppercase;
+    align-self: center;
+    }
+
+/*Shell Container*/
+.shellContainer {
+    position: absolute;
+    }
+
+.animation {
+    animation: swing 1s infinite alternate;
+    }
+
+@keyframes swing {
+    from {
+        transform: translateX(100px);
+        }
+    to {
+        transform: translateX(-200px);
+        }
+    }
+
+/*Shell*/
+.shell {
+    width: 88px;
+    height: auto;
+    }
+
+.shell:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    }
