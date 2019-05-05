@@ -3,3 +3,7 @@
     flex-direction: column;
     justify-content: space-around;
     }
+.title {
+    text-transform: uppercase;
+    align-self: center;
+    }

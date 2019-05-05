@@ -23,21 +23,6 @@
     cursor: pointer;
     }
 
-.normal {
-    background-color: #66b2b2;
-    border: 1px solid #66b2b2;
-    }
-
-.hard {
-    background-color: #008080;
-    border: 1px solid #008080;
-    }
-
-.extreme {
-    background-color: #066;
-    border: 1px solid #066;
-    }
-
 .play {
     align-self: center;
     background-color: #7f8688;
@@ -79,17 +64,6 @@
     to {
         transform: translateX(-200px);
         }
-    }
-
-/*Shell*/
-.shell {
-    width: 88px;
-    height: auto;
-    }
-
-.shell:hover {
-    transform: scale(1.1);
-    cursor: pointer;
     }
 
 /*Ball*/

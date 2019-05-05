@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import ShellGame from './components/shellGame/ShellGame';
+import App from './components/App/app';
 
-ReactDOM.render(<ShellGame/>, document.getElementById('root'));
+ReactDOM.render(<App/>, document.getElementById('root'));

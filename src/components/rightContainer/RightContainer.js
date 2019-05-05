@@ -1,30 +1,26 @@
 import React, { Component } from 'react';
+import Btn from '../btn/Btn';
+import Shell from '../shell/Shell';
 import styles from './RightContainer.module.css';
-import shell from '../../assets/shell.png';
 
 class RightContainer extends Component {
+
     state = {
         boardContainerClassName: styles.shellContainer,
-        shellsNumber: [1, 2, 3],
-        ballsNumber: [1]
+        shellsNumber: [ 1, 2, 3 ],
+        ballsNumber: [ 1 ]
     };
 
     titleText = 'pick your level';
     topPosition = '200px';
-    btnText = {
-        normal: 'normal',
-        hard: 'hard',
-        extreme: 'extreme',
-        play: 'play'
-    };
+    play = 'play';
 
-    classHandler = () =>
-        this.setState({
-                          boardContainerClassName: `${ styles.shellContainer } ${ styles.ShellAnimation }`
-                      });
+    onClassChange = () => this.setState( {
+        boardContainerClassName: `${ styles.shellContainer } ${ styles.ShellAnimation }`
+    } );
 
     leftPosition = index => {
-        switch (index) {
+        switch ( index ) {
             case 0:
                 return '100px';
             case 1:
@@ -40,17 +36,16 @@ class RightContainer extends Component {
         }
     };
 
-    difficultyHandler = action => {
-        switch (action) {
+    onDifficultyChange = action => {
+        switch ( action ) {
             case 'normal':
-                return this.setState({ shellsNumber: [1, 2, 3], ballsNumber: [1] });
+                return this.setState( { shellsNumber: [ 1, 2, 3 ], ballsNumber: [ 1 ] } );
             case 'hard':
-                return this.setState({ shellsNumber: [1, 2, 3, 4], ballsNumber: [1] });
+                return this.setState( { shellsNumber: [ 1, 2, 3, 4 ], ballsNumber: [ 1 ] } );
             case 'extreme':
-                return this.setState({
-                                         shellsNumber: [1, 2, 3, 4, 5],
-                                         ballsNumber: [2]
-                                     });
+                return this.setState( {
+                    shellsNumber: [ 1, 2, 3, 4, 5 ], ballsNumber: [ 2 ]
+                } );
             default:
                 return '';
         }
@@ -60,65 +55,25 @@ class RightContainer extends Component {
         return (
             <div className={ styles.right }>
                 <h1 className={ styles.title }>{ this.titleText }</h1>
-
-                {/*<BtnContainer/>*/ }
                 <div className={ styles.levels }>
-          <span
-              className={ `${ styles.btn } ${ styles.normal }` }
-              onClick={ () => this.difficultyHandler(this.btnText.normal) }
-          >
-            { this.btnText.normal }
-          </span>
-                    <span
-                        className={ `${ styles.btn } ${ styles.hard }` }
-                        onClick={ () => this.difficultyHandler(this.btnText.hard) }
-                    >
-            { this.btnText.hard }
-          </span>
-                    <span
-                        className={ `${ styles.btn } ${ styles.extreme }` }
-                        onClick={ () => this.difficultyHandler(this.btnText.extreme) }
-                    >
-            { this.btnText.extreme }
-          </span>
+                    <Btn onDificulty={ this.onDifficultyChange }/>
                 </div>
-
-                {/*<BoardContainer/>*/ }
                 <div className={ styles.board }>
-                    <ShellComponent
+                    <Shell
                         top={ this.topPosition }
-                        left={ index => this.leftPosition(index) }
+                        left={ index => this.leftPosition( index ) }
                         classToUse={ this.state.boardContainerClassName }
-                        numberOfShells={ this.state.shellsNumber }
-                    />
-                    <span className={ `${ styles.ball } ${ styles.invisible }` }>
-                    </span>
+                        numberOfShells={ this.state.shellsNumber }/>
+                    <span className={ `${ styles.ball } ${ styles.invisible }` }/>
                 </div>
-
-                {/*<Btn text={ 'play' }/>*/ }
                 <span
                     className={ `${ styles.btn } ${ styles.play }` }
-                    onClick={ this.classHandler }
-                >
-          { this.btnText.play }
-        </span>
+                    onClick={ this.onClassChange }>
+                    { this.play }
+                </span>
             </div>
         );
     }
 }
-
-const ShellComponent = props => {
-    return props.numberOfShells.map((_, index) => {
-        return (
-            <div
-                style={ { top: props.top, left: props.left(index) } }
-                className={ props.classToUse }
-                key={ index }
-            >
-                <img src={ shell } alt='shell' className={ styles.shell }/>
-            </div>
-        );
-    });
-};
 
 export default RightContainer;

@@ -1,18 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styles from './LeftContainer.module.css';
 import Logo from '../logo/Logo';
-import Title from '../title/Title';
 
-class LeftContainer extends Component {
-    render() {
-        return (
-
-            <div className={ styles.left }>
-                <Logo/>
-                <Title titleText={ `score: ${ 0 }` }/>
-            </div>
-        );
-    }
-}
+const LeftContainer = () => {
+    return (
+        <div className={ styles.left }>
+            <Logo/>
+            <h1 className={ styles.title }>{ `score: ${ 0 }` }</h1>;
+        </div>
+    );
+};
 
 export default LeftContainer;
