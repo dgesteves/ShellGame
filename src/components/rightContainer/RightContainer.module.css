@@ -53,16 +53,29 @@
     position: absolute;
     }
 
-.ShellAnimation {
-    animation: swing 1s infinite alternate;
+.shellAnimationLeft {
+    animation: swingLeft 1s infinite alternate;
     }
 
-@keyframes swing {
+@keyframes swingLeft {
     from {
         transform: translateX(100px);
         }
     to {
         transform: translateX(-200px);
+        }
+    }
+
+.shellAnimationRight {
+    animation: swingRight 1s infinite alternate;
+    }
+
+@keyframes swingRight {
+    from {
+        transform: translateX(-200px);
+        }
+    to {
+        transform: translateX(100px);
         }
     }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './App.module.css';
-import LeftContainer from '../leftContainer/LeftContainer';
-import RightContainer from '../rightContainer/RightContainer';
+import LeftContainer from './components/leftContainer/LeftContainer';
+import RightContainer from './components/rightContainer/RightContainer';
 
 const App = () => {
     return (

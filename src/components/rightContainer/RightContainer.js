@@ -15,9 +15,15 @@ class RightContainer extends Component {
     topPosition = '200px';
     play = 'play';
 
-    onClassChange = () => this.setState( {
-        boardContainerClassName: `${ styles.shellContainer } ${ styles.ShellAnimation }`
-    } );
+    onClassChange = shellsArr => {
+        const shellClass = shellsArr.map( ( shell ) => {
+                if ( shell === 2 || shell === 4 ) {
+                    return `${ styles.shellContainer } ${ styles.shellAnimationLeft }`;
+                } else return `${ styles.shellContainer } ${ styles.shellAnimationRight }`;
+            }
+        );
+        return this.setState( { boardContainerClassName: shellClass } );
+    };
 
     leftPosition = index => {
         switch ( index ) {
@@ -68,7 +74,7 @@ class RightContainer extends Component {
                 </div>
                 <span
                     className={ `${ styles.btn } ${ styles.play }` }
-                    onClick={ this.onClassChange }>
+                    onClick={ () => this.onClassChange( this.state.shellsNumber ) }>
                     { this.play }
                 </span>
             </div>
